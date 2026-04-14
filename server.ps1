@@ -3,12 +3,13 @@ $listener.Prefixes.Add('http://localhost:8080/')
 $listener.Start()
 Write-Host 'Server started on http://localhost:8080'
 
-$root = $PSScriptRoot
+$root = if ($PSScriptRoot) { $PSScriptRoot } else { $PWD.Path }
 
 while ($listener.IsListening) {
-    $context = $listener.GetContext()
-    $request = $context.Request
-    $response = $context.Response
+    try {
+        $context = $listener.GetContext()
+        $request = $context.Request
+        $response = $context.Response
 
     $path = $request.Url.LocalPath
     if ($path -eq '/') { $path = '/index.html' }
@@ -35,8 +36,12 @@ while ($listener.IsListening) {
     } else {
         $response.StatusCode = 404
         $msg = [System.Text.Encoding]::UTF8.GetBytes('404 Not Found')
+        $response.ContentLength64 = $msg.Length
         $response.OutputStream.Write($msg, 0, $msg.Length)
     }
 
-    $response.Close()
+        $response.Close()
+    } catch {
+        Write-Error "Error handling request: $_"
+    }
 }
