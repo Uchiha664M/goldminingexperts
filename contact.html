@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Gold Mining Experts — Reach out to our global offices.">
+  <meta name="description" content="Contact Gold Mining Experts — Reach out to our global offices in Canada, Brazil, and Guyana for investor relations, general inquiries, and partnerships.">
   <title>Contact Us | Gold Mining Experts</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -63,9 +62,9 @@
   </div>
 
   <!-- ========== INNER HERO ========== -->
-  <section class="inner-hero" id="hero" style="height: 40vh; min-height: 300px;">
+  <section class="inner-hero" id="hero" style="height: 45vh; min-height: 340px;">
     <div class="hero-bg">
-      <img src="images/hero-mine.png" alt="Mine operation site overlay" loading="eager" style="object-position: center bottom;">
+      <img src="images/hero-mine.png" alt="Mining operation" loading="eager" style="object-position: center bottom;">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-gradient-line"></div>
@@ -73,42 +72,116 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title reveal">Contact Us</h1>
+        <p class="hero-subtitle reveal" style="transition-delay: 200ms;">We'd love to hear from you. Reach out with your questions, partnership proposals, or investor inquiries.</p>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTENT SECTION ========== -->
+  <!-- ========== CONTACT FORM + INFO ========== -->
   <section class="page-section" style="padding: 5rem 0;">
     <div class="container">
-      <div class="reveal" style="max-width: 800px;">
-        <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Global Offices</h2>
-        <p class="section-text">For investor relations please reach out to: <strong>ir@goldminingexperts.com</strong><br>For general inquiries: <strong>info@goldminingexperts.com</strong></p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: start;">
+        
+        <!-- Left: Form -->
+        <div class="reveal">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">General Inquiries</h2>
+          <p class="section-text">Please fill out the form below to share more information about how we can help.</p>
+
+          <div class="contact-form-wrap">
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="lastName" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="company">Company / Organization</label>
+                <input type="text" id="company" name="company">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                  <option value="">Select a topic</option>
+                  <option value="investor">Investor Relations</option>
+                  <option value="media">Media Inquiry</option>
+                  <option value="partnership">Partnership / Business Development</option>
+                  <option value="careers">Careers</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="cta-button">
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Contact Info -->
+        <div class="reveal" style="transition-delay: 200ms;">
+          <span class="section-label">Direct Contact</span>
+          <h2 class="section-title">Reach Us Directly</h2>
+          <p class="section-text">
+            For investor relations please reach out to:<br>
+            <strong style="color: var(--navy-900);">ir@goldminingexperts.com</strong>
+          </p>
+          <p class="section-text">
+            For general inquiries:<br>
+            <strong style="color: var(--navy-900);">info@goldminingexperts.com</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFICE LOCATIONS ========== -->
+  <section class="page-section" style="padding: 4rem 0 5rem; background: var(--off-white);">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="section-label">Our Offices</span>
+        <h2 class="section-title">Global Locations</h2>
       </div>
 
-      <div class="stats-grid" style="margin-top: 4rem; grid-template-columns: repeat(2, 1fr);">
-        <div class="stat-card reveal" style="background: var(--white); border-color: rgba(0,0,0,0.1); padding: 2rem; text-align: left;">
-          <h3 class="footer-heading" style="color: var(--navy-900); font-size: 1.1rem;">Montreal</h3>
-          <p class="section-text" style="font-size: 0.9rem; margin-bottom: 0;">5025 Lapinière Blvd. 10th Floor<br>Brossard, Quebec J4Z 0N5 Canada<br>Phone: (450) 923-9176</p>
+      <div class="offices-grid">
+        <div class="office-card reveal">
+          <h3>Montreal</h3>
+          <p>5025 Lapinière Blvd. 10th Floor, Suite 1050<br>Brossard, Quebec J4Z 0N5<br>Canada</p>
+          <a href="tel:+14509239176" class="phone-link">+1 (450) 923-9176</a>
         </div>
-        <div class="stat-card reveal" style="background: var(--white); border-color: rgba(0,0,0,0.1); padding: 2rem; text-align: left; transition-delay: 100ms;">
-          <h3 class="footer-heading" style="color: var(--navy-900); font-size: 1.1rem;">Toronto</h3>
-          <p class="section-text" style="font-size: 0.9rem; margin-bottom: 0;">100 King Street West Suite 5700<br>Toronto, Ontario M5X 1C7 Canada<br>Phone: (647) 728-4176</p>
+        <div class="office-card reveal" style="transition-delay: 100ms;">
+          <h3>Toronto</h3>
+          <p>100 King Street West, Suite 5700<br>Toronto, Ontario M5X 1C7<br>Canada</p>
+          <a href="tel:+16477284176" class="phone-link">+1 (647) 728-4176</a>
         </div>
-        <div class="stat-card reveal" style="background: var(--white); border-color: rgba(0,0,0,0.1); padding: 2rem; text-align: left; transition-delay: 200ms;">
-          <h3 class="footer-heading" style="color: var(--navy-900); font-size: 1.1rem;">Brazil</h3>
-          <p class="section-text" style="font-size: 0.9rem; margin-bottom: 0;">Av. Raja Gabáglia, 959 7º andar<br>Belo Horizonte - MG - Brazil</p>
+        <div class="office-card reveal" style="transition-delay: 200ms;">
+          <h3>Brazil</h3>
+          <p>Edifício ESCO Tower<br>Av. Raja Gabáglia, 959 7º andar<br>Belo Horizonte, MG — Brazil</p>
+          <a href="tel:+553121013751" class="phone-link">+55 31 2101 3751</a>
         </div>
-        <div class="stat-card reveal" style="background: var(--white); border-color: rgba(0,0,0,0.1); padding: 2rem; text-align: left; transition-delay: 300ms;">
-          <h3 class="footer-heading" style="color: var(--navy-900); font-size: 1.1rem;">Guyana</h3>
-          <p class="section-text" style="font-size: 0.9rem; margin-bottom: 0;">Pegasus Hotel Guyana<br>Seawall Road, Kingston, Georgetown</p>
+        <div class="office-card reveal" style="transition-delay: 300ms;">
+          <h3>Guyana</h3>
+          <p>Suite 403AB, 4th Floor<br>Podium Building, Pegasus Hotel<br>Seawall Road, Kingston, Georgetown</p>
+          <a href="#" class="phone-link">Contact Office</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="site-footer" id="contact-footer">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -117,16 +190,24 @@
               <img src="images/logo-with-text.png" alt="Gold Mining Experts full logo">
             </div>
           </div>
-          <p class="footer-description">Creating lasting value through expert mining consultancy, responsible practices, community engagement, and environmental stewardship.</p>
+          <p class="footer-description">Creating lasting value through proven mine development, responsible practices, community engagement, and environmental stewardship.</p>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Company</h4>
+          <h4 class="footer-heading">About</h4>
           <nav class="footer-links">
             <a href="about.html" class="footer-link">About Us</a>
-            <a href="projects.html" class="footer-link">Projects</a>
-            <a href="esg.html" class="footer-link">ESG</a>
-            <a href="careers.html" class="footer-link">Careers</a>
+            <a href="about.html" class="footer-link">Leadership Team</a>
+            <a href="about.html" class="footer-link">Purpose & Values</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Projects</h4>
+          <nav class="footer-links">
+            <a href="projects.html" class="footer-link">Flagship Mine</a>
+            <a href="projects.html" class="footer-link">Development Projects</a>
+            <a href="projects.html" class="footer-link">Exploration Pipeline</a>
           </nav>
         </div>
 
@@ -134,23 +215,15 @@
           <h4 class="footer-heading">Resources</h4>
           <nav class="footer-links">
             <a href="news.html" class="footer-link">News & Media</a>
-            <a href="#" class="footer-link">Investors</a>
+            <a href="esg.html" class="footer-link">ESG</a>
+            <a href="careers.html" class="footer-link">Careers</a>
             <a href="contact.html" class="footer-link">Contact</a>
-          </nav>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-heading">Projects</h4>
-          <nav class="footer-links">
-            <a href="projects.html" class="footer-link">Current Operations</a>
-            <a href="projects.html" class="footer-link">Exploration</a>
-            <a href="projects.html" class="footer-link">Pipeline</a>
           </nav>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2026 Gold Mining Experts. All Rights Reserved.</p>
+        <p class="footer-copyright">&copy; 2026 Gold Mining Experts Corp. All Rights Reserved.</p>
         <a href="#" class="footer-legal-link">Legal & Privacy</a>
       </div>
     </div>

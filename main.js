@@ -1,8 +1,10 @@
 /**
- * Gold Mining Experts — Main JavaScript
+ * Gold Mining Experts — Main JavaScript v2.0
  * - IntersectionObserver for scroll-triggered animations
  * - Stagger delays via CSS classes
+ * - Animated stat counters
  * - Smooth, interruptible transitions
+ * - Contact form handling
  */
 
 (function () {
@@ -16,7 +18,7 @@
 
   function handleHeaderScroll() {
     const currentScroll = window.scrollY;
-    if (currentScroll > 60) {
+    if (currentScroll > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -59,7 +61,7 @@
 
   const observerOptions = {
     root: null,
-    rootMargin: '-80px 0px',
+    rootMargin: '-60px 0px',
     threshold: 0.1,
   };
 
@@ -77,12 +79,19 @@
   diffItems.forEach(el => revealObserver.observe(el));
   newsItems.forEach(el => revealObserver.observe(el));
 
+  // Also observe inner page components
+  document.querySelectorAll('.esg-pillar, .office-card, .career-card, .project-card').forEach(el => {
+    revealObserver.observe(el);
+  });
+
   // ============================================
   // SMOOTH SCROLL for anchor links
   // ============================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         const headerOffset = 80;
@@ -100,7 +109,7 @@
   // ============================================
   // ANIMATED STAT COUNTERS
   // ============================================
-  function animateCounter(element, target, suffix = '', duration = 1200) {
+  function animateCounter(element, target, suffix = '', prefix = '', duration = 1200) {
     const start = 0;
     const startTime = performance.now();
 
@@ -114,12 +123,12 @@
       const easedProgress = easeOut(progress);
       const current = Math.floor(start + (target - start) * easedProgress);
 
-      element.textContent = current + suffix;
+      element.textContent = prefix + current + suffix;
 
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        element.textContent = target + suffix;
+        element.textContent = prefix + target + suffix;
       }
     }
 
@@ -132,12 +141,17 @@
         const el = entry.target;
         const text = el.textContent.trim();
 
+        // Parse the counter values
         if (text === '5') {
-          animateCounter(el, 5, '', 800);
+          animateCounter(el, 5, '', '', 800);
+        } else if (text === '7%') {
+          animateCounter(el, 7, '%', '', 900);
+        } else if (text === '434%') {
+          animateCounter(el, 434, '%', '', 1400);
         } else if (text === '25+') {
-          animateCounter(el, 25, '+', 1000);
+          animateCounter(el, 25, '+', '', 1000);
         } else if (text === '40+') {
-          animateCounter(el, 40, '+', 1200);
+          animateCounter(el, 40, '+', '', 1200);
         }
 
         counterObserver.unobserve(el);
@@ -163,7 +177,7 @@
         requestAnimationFrame(() => {
           const scrolled = window.scrollY;
           if (scrolled < window.innerHeight) {
-            heroBg.style.transform = `scale(${1 + scrolled * 0.0001}) translateY(${scrolled * 0.15}px)`;
+            heroBg.style.transform = `scale(${1 + scrolled * 0.00008}) translateY(${scrolled * 0.12}px)`;
           }
           ticking = false;
         });
@@ -173,28 +187,32 @@
   }
 
   // ============================================
-  // NAV ACTIVE STATE on scroll
+  // CONTACT FORM HANDLING
   // ============================================
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active',
-            link.getAttribute('href') === `#${id}`
-          );
-        });
-      }
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('.cta-button');
+      const originalText = submitBtn.querySelector('span').textContent;
+      submitBtn.querySelector('span').textContent = 'Sending...';
+      submitBtn.style.pointerEvents = 'none';
+      
+      // Simulate form submission
+      setTimeout(() => {
+        submitBtn.querySelector('span').textContent = 'Message Sent ✓';
+        submitBtn.style.background = 'var(--gold-500)';
+        
+        setTimeout(() => {
+          submitBtn.querySelector('span').textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.style.pointerEvents = '';
+          contactForm.reset();
+        }, 2500);
+      }, 1000);
     });
-  }, {
-    rootMargin: '-40% 0px -60% 0px',
-    threshold: 0,
-  });
-
-  sections.forEach(section => sectionObserver.observe(section));
+  }
 
   // ============================================
   // INITIALIZE

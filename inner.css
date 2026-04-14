@@ -1,7 +1,9 @@
 /* ============================================
-   INNER PAGE CSS ADDITIONS
+   INNER PAGE CSS — Gold Mining Experts
+   Shared styles for all sub-pages
    ============================================ */
 
+/* --- Inner Hero Banner --- */
 .inner-hero {
   position: relative;
   height: 60vh;
@@ -22,15 +24,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: heroZoom 30s linear infinite alternate;
 }
 
 .inner-hero .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(10, 22, 40, 0.85) 0%,
-    rgba(13, 31, 60, 0.7) 100%
+    145deg,
+    rgba(6, 14, 26, 0.88) 0%,
+    rgba(11, 25, 41, 0.72) 100%
   );
   z-index: 1;
 }
@@ -41,7 +44,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--gold-500), var(--gold-300), var(--gold-500));
+  background: linear-gradient(90deg, transparent, var(--gold-500), var(--gold-300), var(--gold-500), transparent);
   z-index: 2;
 }
 
@@ -60,7 +63,7 @@
 
 .inner-hero .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
   font-weight: 400;
   color: var(--white);
   line-height: 1.15;
@@ -68,12 +71,317 @@
 }
 
 .inner-hero .hero-subtitle {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.72);
   margin-top: var(--space-md);
+  line-height: 1.65;
+  max-width: 600px;
+}
+
+/* --- Page Content Section --- */
+.page-section {
+  padding: var(--space-4xl) 0;
+}
+
+/* --- Contact Form Styles --- */
+.contact-form-wrap {
+  max-width: 640px;
+  margin-top: var(--space-2xl);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px var(--space-md);
+  border: 1px solid var(--gray-200);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Office Cards --- */
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.office-card {
+  padding: var(--space-2xl);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  transition: border-color 300ms ease, box-shadow 300ms var(--ease-out), transform 250ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .office-card:hover {
+    border-color: var(--gold-400);
+    box-shadow: 0 12px 40px rgba(10, 22, 40, 0.06);
+    transform: translateY(-4px);
+  }
+}
+
+.office-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--navy-900);
+  margin-bottom: var(--space-md);
+}
+
+.office-card p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+.office-card .phone-link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  color: var(--gold-500);
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: color 200ms ease;
+}
+
+.office-card .phone-link:hover {
+  color: var(--gold-600);
+}
+
+/* --- Career Cards --- */
+.career-regions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.career-card {
+  padding: var(--space-2xl);
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 6px;
+  transition: border-color 300ms ease, transform 250ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .career-card:hover {
+    border-color: rgba(201, 168, 76, 0.35);
+    transform: translateY(-4px);
+  }
+}
+
+.career-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold-400);
+  margin-bottom: var(--space-md);
+}
+
+.career-card p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.career-card .cta-button {
+  font-size: 0.72rem;
+  padding: 10px var(--space-xl);
+}
+
+/* --- ESG Pillars --- */
+.esg-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.esg-pillar {
+  padding: var(--space-2xl);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  text-align: center;
+  transition: border-color 300ms ease, box-shadow 300ms var(--ease-out), transform 250ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .esg-pillar:hover {
+    border-color: var(--gold-400);
+    box-shadow: 0 12px 40px rgba(10, 22, 40, 0.06);
+    transform: translateY(-4px);
+  }
+}
+
+.esg-pillar-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.08);
+  border-radius: 50%;
+  color: var(--gold-500);
+}
+
+.esg-pillar-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.esg-pillar h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy-900);
+  margin-bottom: var(--space-md);
+}
+
+.esg-pillar p {
+  font-size: 0.88rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* --- Projects Feature Cards --- */
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+}
+
+.project-card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 300ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.project-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-out);
+}
+
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 30%, rgba(6, 14, 26, 0.9) 100%);
+}
+
+.project-card-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-2xl);
+  width: 100%;
+}
+
+.project-card-content .project-status {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  background: rgba(201, 168, 76, 0.12);
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: var(--space-md);
+}
+
+.project-card-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-bottom: var(--space-sm);
+}
+
+.project-card-content p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
 }
 
-.page-section {
-  padding: var(--space-4xl) 0;
+@media (max-width: 768px) {
+  .offices-grid,
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .career-regions,
+  .esg-pillars {
+    grid-template-columns: 1fr;
+  }
 }
